@@ -19,7 +19,7 @@ cd obj-aflgo; CFLAGS="$ADDITIONAL" CXXFLAGS="$ADDITIONAL" ../configure --disable
 make clean; make -j4
 cat $TMP_DIR/BBnames.txt | rev | cut -d: -f2- | rev | sort | uniq > $TMP_DIR/BBnames2.txt && mv $TMP_DIR/BBnames2.txt $TMP_DIR/BBnames.txt
 cat $TMP_DIR/BBcalls.txt | sort | uniq > $TMP_DIR/BBcalls2.txt && mv $TMP_DIR/BBcalls2.txt $TMP_DIR/BBcalls.txt
-$AFLGO/distance/gen_distance_orig.sh $SUBJECT/obj-aflgo $TMP_DIR xmllint
+$AFLGO/distance/gen_distance_new.sh $SUBJECT/obj-aflgo $TMP_DIR xmllint
 CFLAGS="-distance=$TMP_DIR/distance.cfg.txt" CXXFLAGS="-distance=$TMP_DIR/distance.cfg.txt" ../configure --disable-shared --prefix=`pwd`
 make clean; make -j4
 set +e
